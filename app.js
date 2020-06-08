@@ -41,4 +41,12 @@ app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
 });
 
+app.listen(80, (err, ctx) => {
+  if(err){
+    console.log('service is not running...');
+  }else{
+    console.log('service is running...');
+  }
+})
+
 module.exports = app

@@ -1,4 +1,8 @@
 const router = require('koa-router')()
+const upload = require('../utils/upload')
+const controller = require('../controller')
+
+const JZ_HEADER = '/jzsir';
 
 router.get('/', async (ctx, next) => {
   await ctx.render('index', {
@@ -15,5 +19,9 @@ router.get('/json', async (ctx, next) => {
     title: 'koa2 json'
   }
 })
+
+
+router.get(JZ_HEADER + '/code/checkcode', controller.code.getCode)//获取验证码
+
 
 module.exports = router
